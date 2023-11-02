@@ -6,6 +6,12 @@ class Student:
     def __str__(self):
         return f"{self.name} from {self.house}"
 
+    @classmethod
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
+
     @property
     def name(self):
         return self._name
@@ -27,13 +33,9 @@ class Student:
         self._house = house
 
 def main():
-    student = get_student()
+    student = Student.get()
     # student.house = "Number Four, Privet Drive"
     print(student)
 
-def get_student():
-    name = input("Name: ")
-    house = input("House: ")
-    return Student(name, house)
-
-main()
+if __name__ == "__main__":
+    main()
